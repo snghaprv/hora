@@ -31,7 +31,11 @@ CreateTask : function (req,res) {
       req.body.scheduled_time,
       'DD-MMM-YYYY HH:mm:ss'
     ).utcOffset(-330)
-      .format('YYYY-MM-DD HH:mm:ss')
+      .format('YYYY-MM-DD HH:mm:ss'),
+    location : {
+      lat : req.body.lat,
+      lon : req.body.lon
+    }
   }
   
   Tasks.create(params).meta({ fetch: true }).then( data =>{
@@ -56,6 +60,23 @@ CreateTask : function (req,res) {
       console.log(err);
       res.serverError(err);
     })
+  },
+  RateTask : function (req,res) {
+  
+  var id = req.body.task_id;
+  if (!req.body.rating) {
+    res.serverError({error : "rating missing!!"});
+  }
+  
+  Tasks.update({id:id}, {worker_rating: req.body.rating }).then(
+    data =>{
+      return res.ok({success: true});
+    }, err => {
+      return res.serverError({error : error})
+    }
+  )
+  
+  
   }
 
 };

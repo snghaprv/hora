@@ -31,8 +31,11 @@ module.exports.routes = {
   'POST /sendOTP': 'AuthController.sendOTP',
   'POST /verifyOTP' : 'AuthController.verifyOTP',
   'POST /schedule_task' : 'ConsumerController.CreateTask',
-  'POST /MyHistory' : 'ConsumerController.MyHistory'
-
+  'POST /MyHistory' : 'ConsumerController.MyHistory',
+  'POST /RateTask'  : 'ConsumerController.RateTask',
+  'POST /MyWorkHistory' : 'WorkerController.MyWorkHistory',
+  'POST /getTaskList' : 'WorkerController.getTaskList',
+  'POST /AcceptTask'  : 'WorkerController.AcceptTask'
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

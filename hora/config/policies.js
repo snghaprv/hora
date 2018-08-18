@@ -12,6 +12,9 @@ module.exports.policies = {
   
   ConsumerController: {
     '*' : ['isAuthenticated']
+  },
+  WorkerController: {
+    '*' : ['isAuthenticated']
   }
   /***************************************************************************
   *                                                                          *

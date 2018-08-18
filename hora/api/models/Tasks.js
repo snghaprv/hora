@@ -36,7 +36,7 @@ module.exports = {
       allowNull: true
     },
     category : {
-      type: 'string',
+      type: 'number',
       allowNull: true
     },
     timestamp: {
@@ -52,6 +52,16 @@ module.exports = {
     type: 'string',
     defaultsTo: 'initiated',
     isIn: ['initiated', 'assigned', 'completed',]
+  },
+  history : {
+    type: 'json',
+    columnType: 'array',
+    defaultsTo: []
+  },
+  location : {
+    type: 'json',
+    columnType: 'array',
+    defaultsTo: []
   }
 
 };
