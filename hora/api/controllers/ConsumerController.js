@@ -55,6 +55,10 @@ CreateTask : function (req,res) {
     
   Tasks.find({consumer_id: req.token.id}).then(
     data =>{
+      console.log(data);
+      var rating_array = data.map(x => x.consumer_rating).filter( x => x >0);
+      var avg_rating = rating_array.reduce((a,c) => a+c,0)/(rating_array.length ||1);
+      
       res.ok({data});
     },err => {
       console.log(err);
