@@ -35,7 +35,8 @@ module.exports.routes = {
   'POST /RateTask'  : 'ConsumerController.RateTask',
   'POST /MyWorkHistory' : 'WorkerController.MyWorkHistory',
   'POST /getTaskList' : 'WorkerController.getTaskList',
-  'POST /AcceptTask'  : 'WorkerController.AcceptTask'
+  'POST /AcceptTask'  : 'WorkerController.AcceptTask' ,
+  'POST /RejectTask'  : 'WorkerController.RejectTask'
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
