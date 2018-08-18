@@ -59,10 +59,15 @@ CreateTask : function (req,res) {
       var rating_array = data.map(x => x.consumer_rating).filter( x => x >0);
       var avg_rating = rating_array.reduce((a,c) => a+c,0)/(rating_array.length ||1);
       
-      res.ok({data});
+      console.log("rating_array");
+      console.log(avg_rating);
+      if(avg_rating>0){
+       return res.ok({data,avg_rating});
+      }
+     return res.ok({data});
     },err => {
       console.log(err);
-      res.serverError(err);
+     return res.serverError(err);
     })
   },
   RateTask : function (req,res) {
