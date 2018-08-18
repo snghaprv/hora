@@ -13,7 +13,7 @@ module.exports = {
      var db = Tasks.getDatastore().manager;
      var Collection = db.collection(Tasks.tableName);
    
-     Collection.find({status: {$ne: 'completed'},
+     Collection.find({status : 'initiated',
        rejected_by_workers : {$ne : [ObjectId(req.token.id)]},
          category : {$in : my_skills}
      }
